@@ -616,9 +616,7 @@ const boards = `68 16 83 90 69
     return rows;
   });
 
-// console.log(boards, winningNums);
-
-//returna board with the called number set to true
+//return board with the called number set to true
 const getBoardWithCalledNumber = (board, number) => {
   return board.map((row) =>
     row.map((cell) => ({
@@ -627,7 +625,6 @@ const getBoardWithCalledNumber = (board, number) => {
     }))
   );
 };
-// console.log(getBoardWithCalledNumber(boards[0], 68));
 
 const checkIfRowWonInBoard = (board) => {
   return board.map((row) => row.every((e) => e.isCalled)).includes(true);
@@ -636,14 +633,11 @@ const checkIfColWonInBoard = (board) => {
   const transformedArray = new Array(5).fill("a").map((e, i) => {
     return board.map((row) => row[i]);
   });
-  // console.log(transformedArray);
   return checkIfRowWonInBoard(transformedArray);
 };
-// console.log(checkIfColWonInBoard(boards[0]));
-// console.log([boards[0]]);
+
 const bingoResults = boards.map((board) => {
   //go through each winning number
-  // let winningNumber;
   let mutableBoard = board;
   const winningNumber = winningNums
     .map(Number)
@@ -653,16 +647,13 @@ const bingoResults = boards.map((board) => {
       const isRowWon = checkIfRowWonInBoard(mutableBoard);
       const isColWon = checkIfColWonInBoard(mutableBoard);
 
-      // console.log(mutableBoard, isRowWon, isColWon);
       if (isColWon || isRowWon)
         return { winningNum, pos: i, board: mutableBoard };
       return;
     })
     .filter((e) => e)[0];
-  // console.log(winningNumber);
   return winningNumber;
 });
-// console.log(bingoResults);
 const firstToWin = bingoResults.reduce((acc, elem, i) => {
   if (!acc) return elem;
   if (acc.pos > elem.pos) return elem; //FOR PT1(FIRST TO WIN)
