@@ -529,8 +529,6 @@ const input = `556,286 -> 341,71
   });
 // .filter((e) => e.start.x === e.end.x || e.start.y === e.end.y); //uncomment for part one
 
-console.log(input);
-
 const increaseCountInBoard = (board, pipeElem) => {
   const whereDiff = pipeElem.diff.x === 0 ? "y" : "x";
   const isHorizontalDiff = pipeElem.diff.x !== 0 && pipeElem.diff.y !== 0;
@@ -580,7 +578,6 @@ const xd = input.map((vent) => {
   const diffVal = vent.diff[whereDiff];
   board = increaseCountInBoard(board, vent);
 });
-// console.log(board);
 
 console.log(
   board
