@@ -12,11 +12,7 @@ let input =
 const DAYS = 256; // <= PT2 // change to 80 FOR PT.1
 const countElems = (arr) => arr.reduce((acc, e, i) => acc + e, 0);
 
-const shift = (arr) => {
-  let newArr = arr.slice(1);
-
-  return newArr;
-};
+const shift = (arr) => arr.slice(1);
 
 const calcAndAdd2 = (arr) => {
   let shifted = shift(arr);
@@ -28,5 +24,5 @@ const calcAndAdd2 = (arr) => {
 new Array(DAYS).fill().map(() => {
   input = calcAndAdd2(input);
 });
-
-console.log(input.reduce((acc, e, i) => acc + e, 0));
+const result = input.reduce((acc, e, i) => acc + e, 0);
+console.log(result);
