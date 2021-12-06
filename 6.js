@@ -10,7 +10,6 @@ let input =
     }, arr);
 
 const DAYS = 256; // <= PT2 // change to 80 FOR PT.1
-const countElems = (arr) => arr.reduce((acc, e, i) => acc + e, 0);
 
 const shift = (arr) => arr.slice(1);
 
