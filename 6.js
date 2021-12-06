@@ -19,16 +19,11 @@ const shift = (arr) => {
 };
 
 const calcAndAdd2 = (arr) => {
-  let oldFishes = arr[0];
-
   let shifted = shift(arr);
   shifted[6] = arr[7] + arr[0];
-  shifted = [...shifted, oldFishes];
+  shifted = [...shifted, arr[0]];
   return shifted;
 };
-
-let lanternFish;
-let leng = 0;
 
 new Array(DAYS).fill().map(() => {
   input = calcAndAdd2(input);
